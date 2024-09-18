@@ -103,3 +103,22 @@ fvm flutter run
 ```
 fvm flutter run -d E9A21676-5125-43BB-973D-2F0331CE648C
 ```
+
+### パッケージインストール
+
+個別にパッケージをインストール
+```
+fvm flutter pub add <パッケージの名前>
+例) flutter pub add flutter_riverpod
+```
+
+pubspec.yamlの内容でインストール
+```
+fvm flutter pub get
+```
+
+### Freezedのコード生成
+
+```
+fvm flutter pub run build_runner build --delete-conflicting-outputs
+```
