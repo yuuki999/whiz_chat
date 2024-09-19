@@ -23,7 +23,7 @@ class LoginScreen extends ConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const FlutterLogo(size: 100),
+              const FlutterLogo(size: 100), // TODO: いい感じのロゴにしたい。
               const SizedBox(height: 32),
               Text(
                 'Welcome Back!',

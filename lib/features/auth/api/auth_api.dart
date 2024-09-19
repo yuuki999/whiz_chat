@@ -1,5 +1,6 @@
 import '../../../shared/api/api_service.dart';
 import '../../../shared/api/api_endpoints.dart';
+import '../../../shared/storage/secure_storage.dart';
 import '../entities/auth_token.dart';
 
 class AuthApi {
@@ -16,9 +17,15 @@ class AuthApi {
         data: {'email': email, 'password': password},
       );
 
-      // TODO: JWTをセットする。
+      final authToken = AuthToken.fromJson(response.data);
+      // jwtトークンを保存
+      await SecureStorage.storeTokens(
+        accessToken: authToken.accessToken,
+        refreshToken: authToken.refreshToken,
+      );
 
-      return AuthToken.fromJson(response.data);
+      return authToken;
+
     } catch (e) {
       throw AuthException('ログインに失敗しました : ${e.toString()}');
     }
